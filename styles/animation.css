@@ -1,5 +1,5 @@
 /***** animation *****/
-/* .animate.fade_in					{ opacity:0; transition:opacity 800ms ease-out; transition-delay:0ms;}
+.animate.fade_in					{ opacity:0; transition:opacity 800ms ease-out; transition-delay:0ms;}
 .animate.fade_in.play				{ opacity:1;}
 .animate.fade_up					{ opacity:0; transition:opacity 800ms ease-out, transform 800ms ease-out; transition-delay:0ms;}
 .animate.fade_up.play				{ opacity:1; transform:translateY(0);}
@@ -34,4 +34,4 @@
 .animate.clip_ttb.play,	 
 .animate.clip_ltr.play, 
 .animate.clip_rtl.play				{ opacity:1; transition-delay:300ms;}
-} */
+}
