@@ -1,0 +1,106 @@
+après footer :
+<!-- mentions légales -->
+<!-- <style>
+#rgpdBlackOverlay						{ display:block; position:fixed; top:0%; left: 0%; width: 100%; height: 100%; background-color: rgba(0,0,0,.8); z-index: 1000;}
+#rgpdCloseBtn							{ margin:2% auto; width:100px; border-radius:3px; height:40px; color:#000; background:#fff; text-align:center; font:normal 14px/40px Arial; cursor:pointer;}
+#rgpdLoader								{ margin:4% auto; margin-top:0; max-width:1140px; height:90%; background-color:#fff; z-index:1002;}
+#rgpdLoader iframe						{ width:100%; height:100%; border:none;}
+</style> -->
+
+<!-- alert cookies -->
+<!-- <style>
+@import url('https://fonts.googleapis.com/css?family=Barlow:400,500,600,700&display=swap');
+	
+.alertCookies 						{ width:360px; position:fixed; bottom:2.5vw; left:2.5vw; padding:40px; background-color:#fff; z-index:999; color:#222; font:400 13px/24px "Barlow"; letter-spacing:0.6px; box-sizing:border-box; border-radius:5px; box-shadow: 0 0 30px 0 rgba(0,0,0,0.1); display:none;}
+.alertCookies *						{ box-sizing:border-box;}
+.alertCookies p						{ margin:0 0 20px 0; color:#222; display:inline-block;}
+.alertCookies p.alertCookiesTitle 	{ font:700 30px/36px "Barlow"; letter-spacing:0.4px; margin-bottom:20px;}
+.alertCookies a						{ position:relative; color:#222; cursor:pointer; border-bottom:1px solid #222; padding-bottom:1px; text-decoration:none;}
+.alertCookies .rgpdAccept			{ width:100%; height:60px; font:500 16px/56px "Barlow"; letter-spacing:0.6px; background:linear-gradient(to top, #222 0%, #222 50%, #000 50%, #000 100%); background-size:100% 200%; background-position:0 100%; color:#fff !important; text-align:center; margin:6px 0 22px 0; text-decoration:none; border-radius:5px; display: inline-block; cursor: pointer; transition:background 400ms ease-in-out;}
+.alertCookies .rgpdCustom			{ border-bottom:1px solid #222; cursor: pointer;}	
+	
+.alertCookiesContainer 				{ position:fixed; background:rgba(24,24,24,0.8); top:0; left:0; width:100%; height:100%; overflow-y:scroll; z-index:998; display:none;}
+.alertCookiesContainer::-webkit-scrollbar { display:none;}
+.gridCookies 						{ display:grid; align-items:center; min-height:100%; padding:0 7.5vw;}
+
+.cookieSettings						{ width:100%; max-width:600px; position:static; margin:5vw auto; display:block; padding:50px;}
+.cookieSettings p.alertCookiesTitle { font-size:21px; line-height:30px; margin:-5px 0 30px 0;}
+.cookieSettings .rgpdSaveSettings 	{ margin-bottom:0;}
+.cookieSettings .rgpdCookieItem		{ display:block; clear:both; margin:0 0 5px 0;}
+.cookieSettings input[type=checkbox]{ -webkit-appearance:checkbox; -ms-appearance:checkbox; appearance:checkbox; -moz-appearance:checkbox; -o-appearance:checkbox; width:20px; height:20px !important; display:block; float:left; padding:0; margin:0;}
+.cookieSettings label				{ display:block; margin:0 0 15px 0; padding:0 0 0 30px; float:none; width:auto; height:auto; pointer-events:inherit; font:700 16px/20px "Barlow"; letter-spacing:0.4px;}
+	
+@media (min-width:1201px) {
+.alertCookies .rgpdAccept:hover		{ background-position:0 0;}
+}
+@media (max-width:600px) {
+.alertCookies 						{ padding:7.5vw; bottom:0; left:0; width:100%; border-radius:0;}
+.alertCookies p.alertCookiesTitle 	{ font-size:20px; line-height:26px; margin:5px 0 15px 0; display:block;}
+.alertCookies p						{ margin-bottom:15px;}
+.alertCookies .rgpdAccept			{ height:50px; font-size:13px; line-height:46px; margin:10px 0 20px 0; letter-spacing:0.8px;}
+
+.cookieSettings						{ border-radius:5px; margin:10vw auto;}
+.cookieSettings p.alertCookiesTitle { font-size:18px; line-height:26px; margin:0 0 25px 0;}
+.cookieSettings .rgpdSaveSettings 	{ margin:5px 0 0 0;}
+}
+</style> -->
+
+<!-- <script type="text/javascript">
+
+	function rgpd_accept(choice,pixel,fade=true)
+	{
+		$("<div id='setCookieContainer' style='display:none'></div>").insertAfter("#rgpdInsertTarget");
+		$("#setCookieContainer").load("footer.php?rgpdAccept="+choice+"&rgpdAcceptPixel="+pixel+"&nocache=1728997030");
+		if(fade) $(".alertCookiesContainer,.alertCookies").fadeOut(400);
+	}
+
+	function rgpd_init()
+	{
+		$(".alertCookies .rgpdAccept").click(function() {
+			rgpd_accept(1,1);
+		});
+		
+		$(".alertCookies .rgpdCustom,.rgpdOpenCookieSettingsBtn").click(function(e){
+			$(".alertCookies").remove();
+			e.preventDefault();
+			$("<div class='alertCookiesContainer' style='display:block'><div class='gridCookies'><div class='alertCookies cookieSettings'><p class='alertCookiesTitle'>Paramétrer les cookies</p><div class='rgpdCookieItem'><input type='checkbox' disabled checked /><label>Cookies nécessaires</label><p>Nécessaires au bon fonctionnement technique du site, ces cookies ne peuvent pas être refusés. Concernant les cookies analytiques, ils nous permettent d'améliorer la performance du site en mesurant le nombre de visites et les sources de trafic. Les données collectées sont anonymes.</p></div><div class='rgpdCookieItem'><input type='checkbox' id='acceptPixel' "+(document.cookie.search("acceptPixel=1")>=0 ? "checked" : "")+" /><label for='acceptPixel'>Pixel de suivi</label><p>Le pixel permet aux réseaux sociaux de suivre votre navigation et de créer des audiences selon vos intérêts. Il peut être refusé.</p></div><div class='alertCookiesActions'><a class='rgpdAccept rgpdSaveSettings' title='Enregistrer mes préférences'>Enregistrer mes préférences</a></div></div></div>").insertAfter("#rgpdInsertTarget");
+			$(".rgpdSaveSettings").click(function(e){
+				rgpd_accept(1,$("#acceptPixel").is(":checked")?1:0);
+				$("#rgpdBlackOverlay").remove();
+			});
+			$("#rgpdCloseBtn").click(function(e){
+				$("#rgpdBlackOverlay").remove();
+			});
+			$("#rgpdBlackOverlay").click(function(e){
+				if(e.target===e.currentTarget) $(this).remove();
+			});
+		});
+		
+		$(".rgpdLink").click(function(e){
+			e.preventDefault();
+			$("<div id='rgpdBlackOverlay'><div id='rgpdCloseBtn'>Fermer</div><div id='rgpdLoader'><iframe src='"+$(this).attr("href")+"'></iframe></div></div>").insertAfter("#rgpdInsertTarget");
+			$("#rgpdBlackOverlay").click(function(e){
+				$(this).remove();
+			});
+		});
+		
+		if(document.cookie.search("acceptCookies=")<0)
+		{
+			$(".alertCookies").delay(500).fadeIn(500);
+		}
+	} 
+	window.onload = function(e){
+		if(!window.jQuery)
+		{
+		   var script = document.createElement('script');
+		   script.type = "text/javascript";
+		   script.src = "//rgpd.toponweb.be/js/jquery.min.js";
+		   script.onload = function() { rgpd_init();};
+		   document.getElementsByTagName('head')[0].appendChild(script);
+		}
+		else rgpd_init();
+	}
+	
+	
+</script> -->
+<!-- <div id="rgpdInsertTarget"></div> -->
