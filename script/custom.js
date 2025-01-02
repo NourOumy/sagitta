@@ -56,6 +56,8 @@ $(document).ready(function() {
 			$(this).toggleClass('active');
 		}
 	});	
+
+	//classe active btn menu header
 	// Sélectionner le wrapper qui contient les éléments de menu
 	let wrapper = document.querySelector('.header_nav');
 
