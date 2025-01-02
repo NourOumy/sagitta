@@ -56,6 +56,34 @@ $(document).ready(function() {
 			$(this).toggleClass('active');
 		}
 	});	
+	// Sélectionner le wrapper qui contient les éléments de menu
+	let wrapper = document.querySelector('.header_nav');
+
+	// Écouter les clics sur le wrapper
+	wrapper.addEventListener("click", function(e) {
+	  // Vérifier si l'élément cliqué est un élément de menu <li> ou <a>
+	  if (e.target.tagName === 'A' || e.target.tagName === 'LI') {
+		
+		// Vérifier si l'élément cliqué est un <a>, et dans ce cas cibler le parent <li>
+		let li = e.target.tagName === 'A' ? e.target.closest('li') : e.target;
+  
+		// Vérifier si l'élément <li> cliqué a déjà la classe 'active'
+		if (li.classList.contains('active')) {
+		  // Si l'élément cliqué a déjà la classe active, on la retire
+		  li.classList.remove('active');
+		} else {
+		  // Si l'élément <li> cliqué n'a pas la classe active
+		  // Vérifier s'il y a déjà un autre <li> avec la classe active
+		  let activeLi = wrapper.querySelector('.active');
+		  if (activeLi) {
+			// Si un autre élément a la classe active, on la retire de cet élément
+			activeLi.classList.remove('active');
+		  }
+		  // Ajouter la classe active à l'élément <li> cliqué
+		  li.classList.add('active');
+		}
+	  }
+	});
 
 	// scroll to top //
 	$(".scroll").click(function() {
