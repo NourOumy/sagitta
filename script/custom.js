@@ -23,41 +23,64 @@ $(document).ready(function() {
 	});
 	checkScroll();
 
-	// menu mobile + custom mobile //
-	function displayMobile()
-	{
-		if($(window).width()>1200) {
-			$('.header_nav').removeClass('active'),
-			$('.menu_mobile').removeClass('active'),
-			$('body').removeClass('active_overflow')
-		}
-	}
-	$(window).resize(function(){
-		displayMobile();
-	});
-    $(window).scroll(function(){
-		displayMobile();
-	});
-	displayMobile();
+	// menu mobile + custom mobile
+function displayMobile() {
+    if ($(window).width() > 1200) {
+        $('.header_nav').removeClass('active');
+        $('.menu_mobile').removeClass('active');
+        $('body').removeClass('active_overflow');
+    }
+}
 
-	$(".menu_mobile").click(function() {
-		$(this).toggleClass("active");
-		$("body").toggleClass("active_overflow");
-		$(".header_nav").toggleClass("active");
-		$(".sub").hide();
-		$(".menu li i").removeClass("active");
-	});	
-	$(".menu li i").click(function() {
-		$(this).toggleClass('active');
-		$(".menu").find('.sub').slideUp();
-		if($(this).hasClass("active")){
-			$(".menu li i").removeClass('active');
-			$(this).next().slideToggle();
-			$(this).toggleClass('active');
-		}
-	});	
+$(window).resize(function(){
+    displayMobile();
+});
 
-	//classe active btn menu header
+$(window).scroll(function(){
+    displayMobile();
+});
+
+displayMobile();
+
+// Lorsque le menu mobile est cliqué
+$(".menu_mobile").click(function() {
+    $(this).toggleClass("active");
+    $("body").toggleClass("active_overflow");
+    $(".header_nav").toggleClass("active");
+    $(".sub").hide(); // Ferme les sous-menus
+    $(".menu li i").removeClass("active"); // Enlève les icônes actives
+});	
+
+// Lorsque les icônes des sous-menus sont cliquées
+$(".menu li i").click(function(e) {
+    e.stopPropagation();  // Empêche la propagation de l'événement de clic vers le parent
+
+    // Vérifie si le sous-menu est déjà ouvert
+    var $subMenu = $(this).next();
+    
+    // Ferme tous les sous-menus
+    $(".menu .sub").slideUp();
+    
+    // Si le sous-menu n'était pas ouvert, l'ouvrir
+    if (!$subMenu.is(':visible')) {
+        $(this).toggleClass('active');
+        $subMenu.stop(true, true).slideDown(); // Montre le sous-menu avec animation
+    }
+    
+    // Si l'icône est active, on la laisse active, sinon on la retire
+    $(".menu li i").not(this).removeClass('active');
+});
+
+// Si un élément du menu est cliqué (autre que l'icône)
+$(".menu li a").click(function() {
+    // Ferme le menu mobile après avoir cliqué sur un lien
+    $(".menu_mobile").removeClass("active");
+    $("body").removeClass("active_overflow");
+    $(".header_nav").removeClass("active");
+    $(".sub").slideUp(); // Ferme tous les sous-menus
+});
+
+//classe active btn menu header
 	// Sélectionner le wrapper qui contient les éléments de menu
 	let wrapper = document.querySelector('.header_nav');
 

@@ -380,6 +380,7 @@ padding-left: 50px;
     vertical-align: middle; 
     position: relative; 
     margin-left: 10px; 
+    border-radius: 10px;
 }
 
 .header_nav .menu li a { 
@@ -476,7 +477,7 @@ padding-left: 50px;
 
     .sticky .header_nav > .menu > li > a { 
         height: 60px;
-
+        border-radius: 10px;
     }
 
     .header_top .tel:hover { 
