@@ -47,8 +47,24 @@
     margin-bottom: 20px;
 }
 
-.bloc_grid .link {
+.bloc_grid .link, .link {
     margin-top: 30px;
+    margin-bottom: 20px;
+    border: 3px solid #8bb33de5;
+    border-radius: 10px;
+    transition: all 0.3s ease; /* Transitions douces pour d'autres effets */
+    animation: pulse 1s ease-in-out infinite; /* Animation de pulsation */
+}
+@keyframes pulse {
+    0% {
+        transform: scale(1); /* Taille originale */
+    }
+    50% {
+        transform: scale(1.2); /* Augmenter la taille */
+    }
+    100% {
+        transform: scale(1); /* Retour à la taille originale */
+    }
 }
 
 .bloc_grid.reverse{

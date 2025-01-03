@@ -72,18 +72,16 @@
 }
 
 .banner .img {
-    /* position: absolute; 
-    top: 20%; 
-    right: -24%;
-    margin-left: -10%; 
+    position: absolute; 
+    top: 30%; 
+    right: -50px;
     width: 50%; 
-    height: 100%; */
+    height: 100%;
     z-index: 50;
-    width: 50%;
 }
 
 .banner .content {
-    width: 100%;
+    width: 80%;
     position: relative; 
     z-index: 50; 
 }
@@ -121,6 +119,10 @@
     .banner .wrapper:before {
         left: 500px;
         top: -10%;
+     }
+     .banner .content{
+        width: 90%;
+        top: -5%;
      }
 }
 
@@ -292,7 +294,7 @@
 /***** services *****/
 .service{
     width: 98%;
-    min-height: 900px;
+    min-height: 600px;
     /* max-height: 1000px; */
     margin-top: 200px;
     background-color: rgb(255, 255, 255);
